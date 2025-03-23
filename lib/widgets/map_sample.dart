@@ -11,10 +11,12 @@ class MapSample extends StatefulWidget {
 class _MapSampleState extends State<MapSample> {
   late CameraPosition initialCameraPosition;
   late GoogleMapController mapController;
+  Set<Marker> markers = {};
   @override
   void initState() {
     initialCameraPosition = const CameraPosition(
         target: LatLng(30.78632846612454, 30.999528414111044), zoom: 13);
+    initMarkers();
     super.initState();
   }
 
@@ -23,6 +25,7 @@ class _MapSampleState extends State<MapSample> {
     return Scaffold(
       body: Stack(children: [
         GoogleMap(
+          markers: markers,
           cameraTargetBounds: CameraTargetBounds(
             LatLngBounds(
                 southwest: LatLng(30.57453740183841, 30.71606382514833),
@@ -57,7 +60,16 @@ class _MapSampleState extends State<MapSample> {
 
     mapController.setMapStyle(darkMapStyle);
   }
+
+  void initMarkers() {
+    Marker myMmarker = const Marker(
+        markerId: MarkerId('1'),
+        position: LatLng(30.78632846612454, 30.999528414111044));
+    markers.add(myMmarker);
+  }
 }
+
+
 
 //world view 0 -> 3
 //country view 4 -> 6
