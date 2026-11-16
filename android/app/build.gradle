@@ -49,6 +49,9 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        // The Maps key lives in android/local.properties (not committed):
+        //   MAPS_API_KEY=your_key_here
+        manifestPlaceholders += [MAPS_API_KEY: localProperties.getProperty('MAPS_API_KEY', '')]
     }
 
     buildTypes {
