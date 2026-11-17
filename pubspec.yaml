@@ -1,5 +1,5 @@
 name: google_map
-description: "A new Flutter project."
+description: "Tanta Guide — explore places on Google Maps and track your trips live."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -36,6 +36,11 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   google_maps_flutter: ^2.5.0
+  location: ^5.0.3
+  url_launcher: ^6.2.1
+  google_fonts: 6.1.0
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:

@@ -1,19 +1,44 @@
-# google_map
+<h1 align="center">🗺️ Tanta Guide</h1>
 
-A new Flutter project.
+<p align="center">
+  A Flutter app to explore places in Tanta on <b>Google Maps</b> — custom markers, light / dark map styles,
+  a synced places carousel and <b>live trip tracking</b> with distance, time and speed.
+</p>
 
-## Getting Started
+<p align="center">
+  <img src="https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white" alt="Flutter"/>
+  <img src="https://img.shields.io/badge/Google%20Maps-4285F4?style=flat-square&logo=googlemaps&logoColor=white" alt="Google Maps"/>
+  <img src="https://img.shields.io/badge/Location-live%20tracking-0F766E?style=flat-square" alt="Live location"/>
+  <img src="https://img.shields.io/badge/UI-Arabic%20RTL-FF7A45?style=flat-square" alt="Arabic"/>
+</p>
 
-This project is a starting point for a Flutter application.
+## ✨ Features
 
-A few resources to get you started if this is your first Flutter project:
+- 📍 **Custom map markers** drawn in code per category (landmarks, fun, education, services) — the selected place gets a bigger pin.
+- 🎠 **Places carousel** synced with the map: swipe a card and the camera flies to the place (with tilt); tap a marker and the card follows.
+- 🔎 **Search & category filters** — the map zooms to fit whatever matches.
+- 🌗 **Light / dark map styles** (custom JSON styles) with one tap.
+- 📄 **Place details sheet** — description, address, distance from you, coordinates and a **Directions** button that opens Google Maps.
+- 🧭 **My location** — asks for GPS & permission, shows the blue dot and distance to every place.
+- 🛣️ **Live trip tracking** — draws your route as you move, with distance (km), time and average speed, and fits the whole trip when you stop.
+- ⭕ **Service area** circle around the city center.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🏗️ How it's built
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+lib/
+├── core/        # colors
+├── data/        # places (real Tanta coordinates)
+├── models/      # PlaceModel + PlaceCategory (label, icon, color)
+├── services/    # LocationService — GPS, permission, live location stream
+├── helpers/     # MarkerBuilder (canvas pins), geo (haversine distance)
+└── views/       # ExploreView, TripTrackerView + widgets
+```
+
+- **Maps:** `google_maps_flutter` — markers, circles, polylines, camera animations, custom styles.
+- **Location:** `location` — service / permission checks and a filtered location stream.
+- **Directions:** `url_launcher` opens the Google Maps app.
+- Unit tests for the distance helpers in `test/`.
 
 ## 🔑 Google Maps API key
 
@@ -24,3 +49,14 @@ MAPS_API_KEY=your_google_maps_api_key
 ```
 
 It is injected into `AndroidManifest.xml` at build time through `manifestPlaceholders`.
+
+## 🚀 Run it
+
+```bash
+flutter pub get
+flutter run
+```
+
+---
+
+<p align="center">Made with ❤️ by <a href="https://github.com/youssef-hossam">Youssef Hadwa</a></p>

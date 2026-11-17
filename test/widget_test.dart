@@ -1,30 +1,15 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:google_map/widgets/map_sample.dart';
+import 'package:google_map/helpers/geo.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MapSample());
+  test('distanceBetween returns ~1.11 km for 0.01° of latitude', () {
+    final d = distanceBetween(const LatLng(30.0, 31.0), const LatLng(30.01, 31.0));
+    expect(d, closeTo(1112, 5));
+  });
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  test('formatDistance switches from metres to km', () {
+    expect(formatDistance(850), '850 م');
+    expect(formatDistance(1530), '1.5 كم');
   });
 }
