@@ -12,6 +12,20 @@
   <img src="https://img.shields.io/badge/UI-Arabic%20RTL-FF7A45?style=flat-square" alt="Arabic"/>
 </p>
 
+<p align="center">
+  <img src="screenshots/hero.webp" alt="Tanta Guide" width="100%"/>
+</p>
+
+## 📱 Screens
+
+| Explore | Marker ↔ card sync | Dark style |
+|:-:|:-:|:-:|
+| <img src="screenshots/explore.webp" width="200"/> | <img src="screenshots/museum.webp" width="200"/> | <img src="screenshots/dark.webp" width="200"/> |
+
+| Place details | Category filter | Trip tracker |
+|:-:|:-:|:-:|
+| <img src="screenshots/details.webp" width="200"/> | <img src="screenshots/filter.webp" width="200"/> | <img src="screenshots/trip.webp" width="200"/> |
+
 ## ✨ Features
 
 - 📍 **Custom map markers** drawn in code per category (landmarks, fun, education, services) — the selected place gets a bigger pin.
